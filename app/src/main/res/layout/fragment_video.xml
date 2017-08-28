@@ -1,10 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-    <TextView
-        android:text="视频"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <me.weyye.library.colortrackview.ColorTrackTabLayout
+            android:layout_alignParentBottom="true"
+            android:id="@+id/id_tab_channel_layout"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@color/white"
+            app:tabIndicatorColor="@color/tab_selected_color"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="@color/tab_selected_color"
+            app:tabTextAppearance="@style/TextAppearanceHome"
+            app:tabTextColor="#ff222222"/>
+
+        <ImageView
+            android:layout_alignParentBottom="true"
+            android:id="@+id/id_search_iv"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/shadow_add_titlebar_new"
+            android:paddingLeft="5dp"
+            android:scaleType="center"
+            android:src="@drawable/search_channel"/>
+
+    </RelativeLayout>
+
+    <com.wilshion.headlinenews.view.UILine
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/id_content_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </LinearLayout>
