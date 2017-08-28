@@ -3,6 +3,7 @@ package com.wilshion.headlinenews.ui.fragment;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.wilshion.headlinenews.R;
@@ -12,7 +13,6 @@ import com.wilshion.headlinenews.ui.adapter.ChannelPageAdapter;
 import com.wilshion.headlinenews.ui.base.BaseFragment;
 import com.wilshion.headlinenews.ui.fragment.home.NewsListFragment;
 import com.wilshion.utillib.util.SizeUtils;
-import com.wilshion.utillib.util.StatusBarUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,7 @@ import me.weyye.library.colortrackview.ColorTrackTabLayout;
  * [description : 西瓜视频]
  * [version : 1.0]
  */
-public class VideoMainFragment extends BaseFragment implements TabLayout.OnTabSelectedListener {
+public class VideoMainFragment extends BaseFragment implements TabLayout.OnTabSelectedListener, View.OnClickListener {
     private ColorTrackTabLayout mTabLayout;
     private ImageView mSearchIv;
     private ViewPager mViewPager;
@@ -39,7 +39,7 @@ public class VideoMainFragment extends BaseFragment implements TabLayout.OnTabSe
 
     @Override
     protected void initViews() {
-        StatusBarUtil.immersive(getActivity());
+//        StatusBarUtil.immersive(getActivity());
         initCtrls();
         initChannelData();
         initFragments();
@@ -57,6 +57,7 @@ public class VideoMainFragment extends BaseFragment implements TabLayout.OnTabSe
         mTabLayout.setTabPaddingLeftAndRight(SizeUtils.dp2px(10),SizeUtils.dp2px(10));
         mTabLayout.setSelectedTabIndicatorHeight(0);
 
+        mSearchIv.setOnClickListener(this);
     }
 
     private void initChannelData() {
@@ -99,5 +100,10 @@ public class VideoMainFragment extends BaseFragment implements TabLayout.OnTabSe
     @Override
     public void onTabReselected(TabLayout.Tab tab) {
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        
     }
 }

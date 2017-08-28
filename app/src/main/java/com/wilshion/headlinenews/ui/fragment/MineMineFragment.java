@@ -20,14 +20,11 @@ public class MineMineFragment extends BaseFragment {
 
     @Override
     protected void initViews() {
-        findViewById(R.id.id_hide).setOnClickListener((view) -> mUILoadingView.hide());
-        mUILoadingView = (UILoadingView) findViewById(R.id.id_loading_view);
+       
     }
 
     @Override
     public void onSupportInvisible() {
         super.onSupportInvisible();
-
-        mUILoadingView.hide();
     }
 }

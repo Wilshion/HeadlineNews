@@ -51,6 +51,10 @@ public class UINavigationBar extends Toolbar implements View.OnClickListener {
     }
 
     public void setNavBarLeftImg(int resIcon) {
+        if (resIcon<=0){
+            mLeftIv.setVisibility(GONE);
+            return;
+        }
         mLeftIv.setImageResource(resIcon);
         mLeftLayout.setOnClickListener(this);
     }
@@ -87,12 +91,17 @@ public class UINavigationBar extends Toolbar implements View.OnClickListener {
         mOnNavigationBarClickListener = onNavigationBarClickListener;
     }
 
-    public interface OnNavigationBarClickListener {
-        void onNavigationBarLeftClicked();
+  
 
-        void onNavigationBarTitleClicked();
+    public static class OnNavigationBarClickListener {
+        public void onNavigationBarLeftClicked() {
+        }
 
-        void onNavigationBarRightClicked();
+        public void onNavigationBarTitleClicked() {
+        }
+
+        public void onNavigationBarRightClicked() {
+        }
     }
 
     @Override

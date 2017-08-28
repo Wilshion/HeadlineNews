@@ -16,8 +16,7 @@ import com.wilshion.headlinenews.view.UINavigationBar;
  * [version : 1.0]
  */
 public abstract class BaseNavBarActivity extends BaseActivity 
-        implements NavigationBarView,
-        UINavigationBar.OnNavigationBarClickListener {
+        implements NavigationBarView {
     private UINavigationBar mUINavigationBar;
     private FrameLayout mContentViewFl;
     private View mContentView;
@@ -34,7 +33,23 @@ public abstract class BaseNavBarActivity extends BaseActivity
 
     private void initNavigationBar() {
         mUINavigationBar = (UINavigationBar) findViewById(R.id.id_nav_bar);
-        mUINavigationBar.setOnNavigationBarClickListener(this);
+        mUINavigationBar.setOnNavigationBarClickListener(new UINavigationBar.OnNavigationBarClickListener(){
+            @Override
+            public void onNavigationBarLeftClicked() {
+                logD("onNavigationBarLeftClicked");
+                finish();
+            }
+
+            @Override
+            public void onNavigationBarTitleClicked() {
+                logD("onNavigationBarTitleClicked");
+            }
+
+            @Override
+            public void onNavigationBarRightClicked() {
+                logD("onNavigationBarRightClicked");
+            }
+        });
 
 //        setSupportActionBar(mUINavigationBar);
         setupNavigationBar();
@@ -104,19 +119,5 @@ public abstract class BaseNavBarActivity extends BaseActivity
         mUINavigationBar.setNavBarRightImg(imgUrl);
     }
 
-    @Override
-    public void onNavigationBarLeftClicked() {
-        logD("onNavigationBarLeftClicked");
-        finish();
-    }
-
-    @Override
-    public void onNavigationBarTitleClicked() {
-        logD("onNavigationBarTitleClicked");
-    }
-
-    @Override
-    public void onNavigationBarRightClicked() {
-        logD("onNavigationBarRightClicked");
-    }
+   
 }

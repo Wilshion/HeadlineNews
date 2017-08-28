@@ -130,4 +130,5 @@ dependencies {
     compile 'me.weyye.ColorTrackTabLayout:library:1.0.1'
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'
     compile 'com.github.nukc.stateview:library:1.3.2'
+    compile 'de.hdodenhof:circleimageview:2.0.0'
 }
