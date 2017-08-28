@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:gravity="center_vertical"
+              android:paddingTop="10dp"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+        <TextView
+            android:background="@drawable/cornor_red_stroke"
+            android:textColor="@color/red"
+            android:text="热"
+            android:textSize="14sp"
+            android:id="@+id/id_type_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="1dp"/>
+
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:text="中国青年网"
+            android:id="@+id/id_from_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="1dp"/>
+
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:text="4569评论"
+            android:id="@+id/id_comment_count_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="1dp"/>
+
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:text="1小时前"
+            android:id="@+id/id_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <android.support.v4.widget.Space
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="1dp"/>
+
+        <ImageView
+            android:src="@drawable/ic_news_refuse"
+            android:id="@+id/id_refuse_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+</LinearLayout>

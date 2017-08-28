@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="UITestAttrsView">
+        <!--
+        format="reference"  适用于 R.drawable.xxx    R.style.xxx    
+        -->
+        <attr name="attr_name_1" format="reference"/>
+        <attr name="attr_name_2" format="boolean"/>
+        <!--
+        format="color"  适用于 R.color.xxx    "#000000"   
+        -->
+        <attr name="attr_name_3" format="color"/>
+        <!--
+        format="dimension"  适用于 R.dimen.xxx    "10dp"   
+        -->
+        <attr name="attr_name_4" format="dimension"/>
+
+        <!--
+        在你的布局文件中 的控件下，使用该属性方法
+        app:attr_name_5 = "enum_name_1"
+        -->
+        <attr name="attr_name_5">
+            <enum name="enum_name_1" value="1"/>
+            <enum name="enum_name_2" value="2"/>
+        </attr>
+        <!--
+       在你的布局文件中 的控件下，使用该属性方法
+       app:attr_name_6 = "flag_name_1"
+       -->
+        <attr name="attr_name_6">
+            <flag name="flag_name_1" value="1"/>
+            <flag name="flag_name_2" value="2"/>
+        </attr>
+
+        <!--
+      在你的布局文件中 的控件下，使用该属性方法
+      app:attr_name_7 = "50%"
+      -->
+        <attr name="attr_name_7" format="fraction"/>
+
+        <!--
+         在你的布局文件中 的控件下，使用该属性方法
+         app:attr_name_8 = "0.7"
+         -->
+        <attr name="attr_name_8" format="float"/>
+
+        <!--
+         在你的布局文件中 的控件下，使用该属性方法
+        app:attr_name_9 = "10"
+        -->
+        <attr name="attr_name_9" format="integer"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="UIView">
+        <attr name="ws_cornor_top_left" format="dimension"/>
+        <attr name="ws_cornor_top_right" format="dimension"/>
+        <attr name="ws_cornor_bottom_right" format="dimension"/>
+        <attr name="ws_cornor_bottom_left" format="dimension"/>
+        <attr name="ws_cornors" format="dimension"/>
+        
+        <attr name="ws_border_width" format="dimension"/>
+        <attr name="ws_border_color" format="color"/>
+
+        <attr name="ws_bg_normal" format="color"/>
+        <attr name="ws_bg_selected" format="color"/>
+        <attr name="ws_bg_pressed" format="color"/>
+        <attr name="ws_bg_disabled" format="color"/>
+
+
+    </declare-styleable>
+
+
+    <declare-styleable name="UIBottomBarItem">
+        <attr name="ws_item_text" format="string"></attr>
+        <attr name="ws_item_text_nomal_color" format="color"/>
+        <attr name="ws_item_text_sel_color" format="color"/>
+        <attr name="ws_item_text_color" format="reference"/>
+        <attr name="ws_item_text_size" format="dimension"/>
+        <attr name="ws_item_icon_nomal" format="reference"/>
+        <attr name="ws_item_icon_sel" format="reference"/>
+        <attr name="ws_item_icon" format="reference"/>
+        <attr name="ws_item_state" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="UIBadgeView">
+        <attr name="ws_backgroud_drawable" format="reference"/>
+        <attr name="ws_background_color" format="color"/>
+        <attr name="ws_text_size" format="dimension"/>
+        <attr name="ws_text_color" format="color"/>
+        <attr name="ws_max_visible_count" format="integer"/>
+        <attr name="ws_count" format="integer"/>
+        <attr name="ws_padding_horizontal" format="dimension"/>
+        <attr name="ws_padding_vertical" format="dimension"/>
+        <!--<attr name="ws_cornors" format="dimension"/>-->
+    </declare-styleable>
+
+    <declare-styleable name="UILine">
+        <attr name="android:background"/>
+        <attr name="ws_line_thickness" format="dimension"/>
+        <attr name="ws_line_color" format="color"/>
+        <attr name="ws_line_orientation" format="enum">
+            <enum name="horizontal" value="0"/>
+            <enum name="vertical" value="1"/>
+        </attr>
+        <attr name="ws_line_mode" format="enum">
+            <enum name="real" value="0"/>
+            <enum name="dotted" value="1"/>
+        </attr>
+    </declare-styleable>
+
+</resources>

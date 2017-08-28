@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.wilshion.headlinenews.ui.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/id_container_fl"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+
+    <com.wilshion.headlinenews.view.UIBottomBar
+        android:id="@+id/id_bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/darkgray"
+        android:orientation="horizontal">
+
+        <com.wilshion.headlinenews.view.UIBottomBarItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:ws_item_icon="@drawable/selector_tab_home"
+            app:ws_item_text="首页"
+            app:ws_item_text_color="@color/color_tab_text"/>
+
+        <com.wilshion.headlinenews.view.UIBottomBarItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:ws_item_icon="@drawable/selector_tab_video"
+            app:ws_item_text="视频"
+            app:ws_item_text_color="@color/color_tab_text"/>
+
+        <com.wilshion.headlinenews.view.UIBottomBarItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:ws_item_icon="@drawable/selector_tab_micro"
+            app:ws_item_text="微头条"
+            app:ws_item_text_color="@color/color_tab_text"/>
+
+        <com.wilshion.headlinenews.view.UIBottomBarItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:ws_item_icon="@drawable/selector_tab_mine"
+            app:ws_item_text="我的"
+            app:ws_item_text_color="@color/color_tab_text"/>
+    </com.wilshion.headlinenews.view.UIBottomBar>
+
+
+</LinearLayout>

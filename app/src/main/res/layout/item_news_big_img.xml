@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+              style="@style/NewsListItemLinearLayout">
+    <TextView
+        android:background="@color/pink"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:id="@+id/id_title_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    
+    <RelativeLayout
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/pink"
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+        <VideoView
+            android:id="@+id/id_video_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:id="@+id/id_big_iv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+    <include layout="@layout/item_part_news_info"/>
+</LinearLayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:gravity="center_horizontal"
+              android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_marginTop="3dp"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_gravity="bottom|center_horizontal"
+            android:scaleType="fitXY"
+            android:id="@+id/id_icon_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.wilshion.headlinenews.view.UIBadgeView
+            android:layout_gravity="right|top"
+            android:id="@+id/id_badge_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </FrameLayout>
+
+
+    <TextView
+        android:layout_marginBottom="3dp"
+        android:textSize="10sp"
+        android:id="@+id/id_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLength="4"
+        android:text="哈哈哈"/>
+</LinearLayout>

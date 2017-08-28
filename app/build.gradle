@@ -1,0 +1,133 @@
+apply plugin: 'com.android.application'
+//支持 java 8
+apply plugin: "me.tatarka.retrolambda"
+//支持 apt
+//apply plugin: 'android-apt'
+//支持 butterknife 8.8
+apply plugin: 'com.jakewharton.butterknife'
+def getMyVersionName() {
+    def parsedManifestXml = (new XmlSlurper())
+            .parse("${projectDir}/src/main/AndroidManifest.xml")
+            .declareNamespace(android: "http://schemas.android.com/apk/res/android")
+    return parsedManifestXml."@android:versionName"
+}
+
+def getMyVersionCode() {
+    def parsedManifestXml = (new XmlSlurper())
+            .parse("${projectDir}/src/main/AndroidManifest.xml")
+            .declareNamespace(android: "http://schemas.android.com/apk/res/android")
+    return parsedManifestXml."@android:versionCode".toInteger()
+}
+
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        applicationId "com.wilshion.headline"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file("wilshion.jks")
+            storePassword "wilshion"
+            keyAlias "wilshion"
+            keyPassword "wilshion"
+        }
+        release {
+            storeFile file("wilshion.jks")
+            storePassword "wilshion"
+            keyAlias "wilshion"
+            keyPassword "wilshion"
+        }
+    }
+    
+    
+    buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+        }
+        release {
+            minifyEnabled true
+            signingConfig signingConfigs.release
+        }
+    }
+
+    packagingOptions {
+        exclude "META-INF/LICENSE.txt"
+        exclude "META-INF/NOTICE.txt"
+    }
+
+    lintOptions {
+        // 设置为 true时lint将不报告分析的进度
+        quiet true
+        // 如果为 true，则当lint发现错误时停止 gradle构建
+        abortOnError false
+        // 如果为 true，则只报告错误
+        ignoreWarnings true
+        // 如果为 true，则当有错误时会显示文件的全路径或绝对路径 (默认情况下为true)
+        absolutePaths true
+        // 如果为 true，则检查所有的问题，包括默认不检查问题
+        checkAllWarnings true
+    }
+
+    compileOptions {
+        //配置这个需要 retrolambda 库的支持，否则会报
+        //Error:Jack is required to support java 8 language features. Either enable Jack or remove sourceCompatibility JavaVersion.VERSION_1_8.
+        
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    aaptOptions {
+        additionalParameters "--no-version-vectors"
+    }
+
+    productFlavors {
+       
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile project(':utillib')
+//        testCompile 'junit:junit:4.12'
+    //ui
+ 
+    
+    
+    //rx
+    compile 'io.reactivex.rxjava2:rxjava:2.1.2'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    
+    
+    //network
+    compile 'com.google.code.gson:gson:2.8.1'
+    
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    compile 'com.squareup.okhttp3:okhttp:3.8.1'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.8.1'
+    compile 'com.github.bumptech.glide:glide:4.0.0'
+
+    //di
+    compile 'com.google.dagger:dagger:2.0.2'
+    compile 'com.google.dagger:dagger-compiler:2.0.2'
+    compile 'com.jakewharton:butterknife:8.8.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.0'
+
+    compile 'me.yokeyword:fragmentation:1.1.1'
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
+    compile 'me.weyye.ColorTrackTabLayout:library:1.0.1'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'
+    compile 'com.github.nukc.stateview:library:1.3.2'
+}
