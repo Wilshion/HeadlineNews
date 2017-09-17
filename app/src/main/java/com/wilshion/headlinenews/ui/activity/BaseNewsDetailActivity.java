@@ -6,7 +6,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.github.nukc.stateview.StateView;
@@ -19,8 +18,9 @@ import com.wilshion.headlinenews.ui.adapter.CommentAdapter;
 import com.wilshion.headlinenews.ui.base.BaseMvpActivity;
 import com.wilshion.headlinenews.view.NewsDetailHeader;
 import com.wilshion.headlinenews.view.UIBadgeView;
+import com.wilshion.headlinenews.view.UIScrollView;
 import com.wilshion.utillib.util.EmptyUtils;
-import com.wilshion.utillib.util.LogUtils;
+import com.wilshion.utillib.util.ScreenUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +45,7 @@ public abstract class BaseNewsDetailActivity extends BaseMvpActivity<NewsDetailP
     protected String mChannelCode;
     protected int mPosition;
 
-    private ScrollView mScrollView;
+    private UIScrollView mScrollView;
 
     private RelativeLayout mContentFl;
     private StateView mStateView;
@@ -56,7 +56,6 @@ public abstract class BaseNewsDetailActivity extends BaseMvpActivity<NewsDetailP
     private CommentResponse mCommentResponse;
 
     private UIBadgeView mCommentCountTv;
-    private boolean mShowComment;
 
     @Override
     protected NewsDetailPresenter createPresenter() {
@@ -66,7 +65,7 @@ public abstract class BaseNewsDetailActivity extends BaseMvpActivity<NewsDetailP
     @Override
     protected void initViews() {
         /** findViewById */
-        mScrollView = (ScrollView) findViewById(R.id.id_content_sv);
+        mScrollView = (UIScrollView) findViewById(R.id.id_content_sv);
         mContentFl = (RelativeLayout) findViewById(R.id.id_content_fl);
         mCommentRv = (RecyclerView) findViewById(R.id.id_recycler_view);
         mCommentCountTv = (UIBadgeView) findViewById(R.id.id_comment_count_tv);
@@ -184,19 +183,24 @@ public abstract class BaseNewsDetailActivity extends BaseMvpActivity<NewsDetailP
      * 切换展示 内容和评论区域
      */
     private void toggleWithenContentAndComment() {
-        int contentSize = mNewsDetailHeader.getHeaderHeight() + mCommentRv.getHeight();
-        int curScrollY = mScrollView.getScrollY();
-        LogUtils.e("contentSize = " + contentSize
-                + "scrollViewHeight = " + mScrollView.getHeight()
-                + "Headerheight = " + mNewsDetailHeader.getHeaderHeight()
-                + " curScrollY =" + curScrollY
-        );
-        if (curScrollY < mNewsDetailHeader.getHeaderHeight() && !mShowComment) {
-            mScrollView.smoothScrollTo(0, mNewsDetailHeader.getHeaderHeight());
-            mShowComment = true;
+        int scrollViewContentOffset = mScrollView.getContentOffset();
+        int headerViewHeight = mNewsDetailHeader.getHeaderHeight();
+
+        boolean showComment;
+        if (scrollViewContentOffset >= headerViewHeight) {
+            /** 此时 scrollView 已经完全滑动到评论区*/
+            showComment = true;
         } else {
-            mScrollView.smoothScrollTo(0, 0);
-            mShowComment = false;
+            if (scrollViewContentOffset + ScreenUtils.getScreenHeight() > headerViewHeight) {
+                /** 此时 scrollView 滑动到 内容末尾 评论区开头，两者同时可见*/
+                showComment = true;
+            } else {
+                /** 此时 scrollview 滑动到完全展示新闻内容，评论区不可见*/
+                showComment = false;
+            }
         }
+        if (showComment)
+            mScrollView.smoothScrollTo(0, 0);
+        else mScrollView.smoothScrollTo(0, mNewsDetailHeader.getHeaderHeight());
     }
 }

@@ -181,6 +181,19 @@ public class NewsListFragment extends BaseMvpFragment<NewsListPresenter>
 
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+        LinearLayoutManager layoutManager = (LinearLayoutManager) mRecyclerView.getLayoutManager();
+        /** 当前屏幕可见 item 数量*/
+        int visibleItemCount = layoutManager.getChildCount();
+        /** recyclerView 所有子项数量*/
+        int totalItemCount = layoutManager.getItemCount();
+        
+        /** 第一个可见的item 位置*/
+        int lastVisibleItemPosition = layoutManager.findLastVisibleItemPosition();
+        /** 当前屏幕 可完全显示的第一个子项的位置*/
+        int a = layoutManager.findFirstCompletelyVisibleItemPosition();
+        /** 当前屏幕 可完全显示的最后一个个子项的位置*/
+        int b = layoutManager.findLastCompletelyVisibleItemPosition();
+        
         News news = mAdapter.getData().get(position);
         String itemId = news.item_id;
         StringBuffer urlSb = new StringBuffer("http://m.toutiao.com/i");

@@ -6,7 +6,7 @@
 
     <include layout="@layout/part_news_navigation_bar"/>
 
-    <ScrollView
+    <com.wilshion.headlinenews.view.UIScrollView
         android:id="@+id/id_content_sv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -36,7 +36,7 @@
 
 
         </RelativeLayout>
-    </ScrollView>
+    </com.wilshion.headlinenews.view.UIScrollView>
 
 
     <include layout="@layout/part_news_detail_bottom_bar"/>
