@@ -1,7 +1,6 @@
 package com.wilshion.headlinenews;
 
 import android.app.Application;
-import android.support.v4.content.ContextCompat;
 
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
@@ -33,19 +32,17 @@ public class HeadlineNewsApplication extends Application {
     }
     
     static {
-        //static 代码段可以防止内存泄露
-        //设置全局的Header构建器
         SmartRefreshLayout.setDefaultRefreshHeaderCreater((context, layout) -> {
             ClassicsHeader header = new ClassicsHeader(context).setSpinnerStyle(SpinnerStyle.Translate);
-            header.setPrimaryColors(ContextCompat.getColor(context, R.color.colorPrimary), ContextCompat.getColor(context, android.R.color.white));
-            return header;//指定为经典Header，默认是 贝塞尔雷达Header
+//            header.setPrimaryColors(ContextCompat.getColor(context, R.color.darkgray),
+//                    ContextCompat.getColor(context, android.R.color.white));
+            return header;
         });
-        //设置全局的Footer构建器
         SmartRefreshLayout.setDefaultRefreshFooterCreater((context, layout) -> {
             ClassicsFooter footer = new ClassicsFooter(context);
             footer.setBackgroundResource(android.R.color.white);
-            footer.setSpinnerStyle(SpinnerStyle.Scale);//设置为拉伸模式
-            return footer;//指定为经典Footer，默认是 BallPulseFooter
+            footer.setSpinnerStyle(SpinnerStyle.Translate);
+            return footer;
         });
     }
 }

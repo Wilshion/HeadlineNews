@@ -1,31 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:background="@color/white"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               style="@style/NewsListItemLinearLayout">
+
     <TextView
-        android:background="@color/pink"
-        android:textColor="@color/black"
-        android:textSize="18sp"
         android:id="@+id/id_title_tv"
+        style="@style/NewsListItemTitle"/>
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    
-    <RelativeLayout
+        android:layout_height="150dp"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
-        android:background="@color/pink"
-        android:layout_width="match_parent"
-        android:layout_height="150dp">
-        <VideoView
-            android:id="@+id/id_video_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+        android:background="@color/pink">
+
+
         <ImageView
-            android:id="@+id/id_big_iv"
+            android:scaleType="centerCrop"
+            android:id="@+id/id_iv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-    </RelativeLayout>
+
+        <ImageView
+            android:layout_gravity="center"
+            android:id="@+id/id_play_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_video_play"/>
+
+        <com.flyco.roundview.RoundFrameLayout
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:layout_gravity="right|bottom"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"
+            app:rv_cornerRadius="15dp">
+
+            <com.flyco.roundview.RoundTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.3"
+                app:rv_backgroundColor="@color/black"
+                app:rv_cornerRadius="15dp"/>
+
+            <TextView
+                android:id="@+id/id_info_tv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="06:18"
+                android:textColor="@color/white"
+                android:textSize="10sp"/>
+        </com.flyco.roundview.RoundFrameLayout>
+    </FrameLayout>
+
     <include layout="@layout/item_part_news_info"/>
 </LinearLayout>

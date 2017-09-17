@@ -1,51 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="horizontal"
-              android:gravity="center_vertical"
-              android:paddingTop="10dp"
               android:layout_width="match_parent"
-              android:layout_height="wrap_content">
+              android:layout_height="wrap_content"
+              android:gravity="center_vertical"
+              android:orientation="horizontal"
+              android:paddingTop="10dp">
 
-        <TextView
-            android:background="@drawable/cornor_red_stroke"
-            android:textColor="@color/red"
-            android:text="热"
-            android:textSize="14sp"
-            android:id="@+id/id_type_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="1dp"/>
+    <TextView
+        android:id="@+id/id_type_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cornor_red_stroke"
+        android:padding="1dp"
+        android:text="热"
+        android:textColor="@color/red"
+        android:textSize="12sp"/>
 
-        <TextView
-            android:layout_marginLeft="5dp"
-            android:text="中国青年网"
-            android:id="@+id/id_from_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="1dp"/>
+    <TextView
+        android:textSize="12sp"
+        android:id="@+id/id_author_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:padding="1dp"
+        android:text="中国青年网"/>
 
-        <TextView
-            android:layout_marginLeft="5dp"
-            android:text="4569评论"
-            android:id="@+id/id_comment_count_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="1dp"/>
+    <TextView
+        android:textSize="12sp"
+        android:id="@+id/id_comment_count_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:padding="1dp"
+        android:text="4569评论"/>
 
-        <TextView
-            android:layout_marginLeft="5dp"
-            android:text="1小时前"
-            android:id="@+id/id_time_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <android.support.v4.widget.Space
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="1dp"/>
+    <TextView
+        android:textSize="12sp"
+        android:id="@+id/id_time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="1小时前"/>
 
-        <ImageView
-            android:src="@drawable/ic_news_refuse"
-            android:id="@+id/id_refuse_iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+    <android.support.v4.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="1"/>
+
+    <ImageView
+        android:id="@+id/id_refuse_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_news_refuse"/>
 </LinearLayout>

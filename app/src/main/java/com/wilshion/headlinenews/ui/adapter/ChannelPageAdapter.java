@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.wilshion.headlinenews.model.bean.Channel;
 import com.wilshion.headlinenews.ui.fragment.home.NewsListFragment;
+import com.wilshion.utillib.util.LogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,18 +26,44 @@ public class ChannelPageAdapter extends FragmentStatePagerAdapter {
         mChannels = channels == null ? new ArrayList<>() : channels;
     }
 
-    @Override
-    public Fragment getItem(int position) {
-        return mFragments.get(position);
-    }
-
-    @Override
-    public int getCount() {
-        return mFragments.size();
-    }
+//    @Override
+//    public Fragment getItem(int position) {
+//        return mFragments.get(position);
+//    }
+//
+//    @Override
+//    public int getCount() {
+//        return mFragments.size();
+//    }
 
     @Override
     public CharSequence getPageTitle(int position) {
         return mChannels.get(position).title;
+    }
+
+    public ChannelPageAdapter(FragmentManager fm, List<Channel> channels) {
+        super(fm);
+        mChannels = channels;
+        mFragments = new ArrayList<>();
+    }
+
+    @Override
+    public Fragment getItem(int position) {
+       
+        if (mFragments.size() > position){
+            LogUtils.e("mFragments.get(position) " + position);
+            return mFragments.get(position);
+        }
+        else {
+            LogUtils.e("NewsListFragment.newInstance " + position);
+            NewsListFragment newsListFragment = NewsListFragment.newInstance(mChannels.get(position));
+            mFragments.add(newsListFragment);
+            return newsListFragment;
+        }
+    }
+
+    @Override
+    public int getCount() {
+        return mChannels.size();
     }
 }

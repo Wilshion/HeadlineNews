@@ -1,12 +1,13 @@
 package com.wilshion.headlinenews.test;
 
+import android.support.annotation.NonNull;
+
 import com.wilshion.headlinenews.model.http.HNHttpHelper;
 import com.wilshion.headlinenews.model.http.response.TestResponse;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;

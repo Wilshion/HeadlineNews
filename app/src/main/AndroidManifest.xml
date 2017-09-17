@@ -13,7 +13,6 @@
 
 
     <application
-        android:hardwareAccelerated="false"
         android:name=".HeadlineNewsApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -28,7 +27,15 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.wilshion.headlinenews.ui.MainActivity"/>
+        <activity
+            android:name="com.wilshion.headlinenews.ui.MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".test.TestActivity"/>
+        <activity android:name=".ui.activity.SearchActivity"/>
+        <activity android:name=".test.TestWebViewActivity"/>
+        <activity android:name=".ui.activity.VideoDetailActivity"/>
+        <activity android:name=".ui.activity.WebViewActivity"/>
+        <activity android:name=".ui.activity.NewsDetailActivity"/>
 
     </application>
 

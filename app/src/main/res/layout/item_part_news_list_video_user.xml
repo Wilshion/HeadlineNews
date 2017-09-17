@@ -4,9 +4,9 @@
               android:layout_height="wrap_content"
               android:orientation="horizontal"
               android:gravity="center_vertical"
-              android:paddingBottom="10dp"
               android:paddingLeft="15dp"
               android:paddingRight="15dp"
+              android:paddingBottom="10dp"
               android:paddingTop="10dp">
 
     <LinearLayout
@@ -15,14 +15,12 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <android.support.v4.widget.CircleImageView
-            android:background="@color/pink"
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/id_avatar_iv"
             android:layout_width="30dp"
             android:layout_height="30dp"/>
 
         <TextView
-            android:background="@color/pink"
             android:id="@+id/id_name_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,15 +33,12 @@
         android:layout_height="1dp"
         android:layout_weight="1"/>
 
-    <TextView
-        android:background="@color/pink"
-        android:id="@+id/id_attention_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="关注"/>
+  
 
     <TextView
-        android:background="@color/pink"
+        android:drawablePadding="2dp"
+        android:gravity="center"
+        android:drawableLeft="@drawable/ic_comment_count"
         android:layout_marginLeft="3dp"
         android:id="@+id/id_comment_count_tv"
         android:layout_width="wrap_content"
@@ -51,10 +46,9 @@
         android:text="123"/>
 
     <ImageView
-        android:background="@color/pink"
-        android:layout_marginLeft="10dp"
+        android:src="@drawable/ic_more"
+        android:layout_marginLeft="15dp"
         android:id="@+id/id_more_tv"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="关注"/>
+        android:layout_height="wrap_content"/>
 </LinearLayout>

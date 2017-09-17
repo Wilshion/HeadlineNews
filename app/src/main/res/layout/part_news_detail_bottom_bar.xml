@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="44dp"
+              android:orientation="horizontal"
+              android:paddingBottom="5dp"
+              android:paddingLeft="15dp"
+              android:paddingRight="15dp"
+              android:paddingTop="5dp">
+
+    <com.flyco.roundview.RoundLinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        app:rv_backgroundColor="@color/line_body"
+        app:rv_cornerRadius="15dp"
+        app:rv_strokeColor="@color/line_stoke"
+        app:rv_strokeWidth="1px">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_news_detail_reply"
+            android:drawablePadding="5dp"
+            android:gravity="center_vertical"
+            android:text="写评论"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"/>
+    </com.flyco.roundview.RoundLinearLayout>
+
+    <android.support.v4.widget.Space
+        android:layout_width="30dp"
+        android:layout_height="match_parent"/>
+
+    <FrameLayout
+        android:id="@+id/id_comment_count_iv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_comment_count"/>
+
+        <com.wilshion.headlinenews.view.UIBadgeView
+            android:layout_marginRight="10dp"
+            android:visibility="gone"
+            android:id="@+id/id_comment_count_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|top"
+            app:ws_count="53"
+            app:ws_text_color="@color/white"/>
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/id_collect_iv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:src="@drawable/selector_news_detail_collect"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/id_share_iv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical|right"
+            android:src="@drawable/selector_news_detail_share"/>
+    </FrameLayout>
+</LinearLayout>

@@ -3,6 +3,7 @@ package com.wilshion.utillib.util;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
+import android.support.annotation.ArrayRes;
 import android.support.v4.content.ContextCompat;
 
 /**
@@ -26,5 +27,14 @@ public class ResouceUtil {
 
     public static StateListDrawable getStateListDrawable(int resId) {
         return (StateListDrawable) ContextCompat.getDrawable(Utils.getContext(), resId);
+    }
+    
+    public static String getString(int resId){
+        return Utils.getContext().getString(resId);
+    }
+    
+    public static String[] getStringArray(@ArrayRes int id){
+        String[] results = Utils.getContext().getResources().getStringArray(id);
+        return results;
     }
 }

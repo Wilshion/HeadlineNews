@@ -1,6 +1,8 @@
 package com.wilshion.headlinenews.mvp.presenter;
 
 
+import android.support.annotation.NonNull;
+
 import com.wilshion.headlinenews.mvp.RxPresenter;
 import com.wilshion.headlinenews.mvp.contract.SplashContract;
 
@@ -9,7 +11,6 @@ import java.util.concurrent.TimeUnit;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
@@ -23,7 +24,7 @@ public class SplashPresenter extends RxPresenter<SplashContract.View> implements
     private Disposable mDisposable;
     @Override
     public void getAdData() {
-      Observable.interval(1, 1, TimeUnit.SECONDS)
+      Observable.interval(0, 1, TimeUnit.SECONDS)
                 .take(DELAY)
                 .map(aLong -> DELAY - aLong.intValue())
                 .subscribeOn(Schedulers.io())

@@ -1,9 +1,9 @@
 package com.wilshion.headlinenews.ui.fragment;
 
-import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -11,11 +11,12 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.wilshion.headlinenews.R;
-import com.wilshion.headlinenews.constant.Constant;
 import com.wilshion.headlinenews.model.bean.Channel;
 import com.wilshion.headlinenews.model.sp.ChannelHelper;
+import com.wilshion.headlinenews.ui.activity.SearchActivity;
 import com.wilshion.headlinenews.ui.adapter.ChannelPageAdapter;
 import com.wilshion.headlinenews.ui.base.BaseFragment;
+import com.wilshion.headlinenews.ui.dialog.SetupChannelDialog;
 import com.wilshion.headlinenews.ui.fragment.home.NewsListFragment;
 import com.wilshion.utillib.util.EmptyUtils;
 import com.wilshion.utillib.util.StatusBarUtil;
@@ -40,6 +41,8 @@ public class HomeMainFragment extends BaseFragment implements TabLayout.OnTabSel
     private List<NewsListFragment> mChannelFragments = new ArrayList<>();
     private Gson mGson = new Gson();
 
+    private SetupChannelDialog mSetupChannelDialog;
+
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_home_main;
@@ -60,12 +63,12 @@ public class HomeMainFragment extends BaseFragment implements TabLayout.OnTabSel
         mTabLayout.setSelectedTabIndicatorHeight(0);
         mViewPager = (ViewPager) findViewById(R.id.id_content_vp);
         mTabLayout.setupWithViewPager(mViewPager);
-        
+
         mSearchTv.setOnClickListener(this);
         mAddTabIv.setOnClickListener(this);
         mTabLayout.addOnTabSelectedListener(this);
 //        StatusBarUtil.setPadding(getActivity(),mSearchTv);
-        StatusBarUtil.setPaddingSmart(getActivity(),findViewById(R.id.id_statusbar));
+        StatusBarUtil.setPaddingSmart(getActivity(), findViewById(R.id.id_statusbar));
         StatusBarUtil.immersive(getActivity());
     }
 
@@ -98,20 +101,16 @@ public class HomeMainFragment extends BaseFragment implements TabLayout.OnTabSel
     }
 
     private void initChannelFragments() {
-        String[] channelCodes = getResources().getStringArray(R.array.channel_code);
-        for (Channel channel : mSelectedChannels) {
-            NewsListFragment newsFragment = new NewsListFragment();
-            Bundle bundle = new Bundle();
-            bundle.putString(Constant.CHANNEL_CODE, channel.channelCode);
-            newsFragment.setArguments(bundle);
-            mChannelFragments.add(newsFragment);//添加到集合中
-        }
+//        for (Channel channel : mSelectedChannels) {
+//            NewsListFragment newsFragment = NewsListFragment.newInstance(channel);
+//            mChannelFragments.add(newsFragment);//添加到集合中
+//        }
     }
 
     private void initContentPager() {
-        ChannelPageAdapter adapter = new ChannelPageAdapter(getChildFragmentManager(), mChannelFragments, mSelectedChannels);
+        ChannelPageAdapter adapter = new ChannelPageAdapter(getChildFragmentManager(), mSelectedChannels);
         mViewPager.setAdapter(adapter);
-        mViewPager.setOffscreenPageLimit(mChannelFragments.size());
+        mViewPager.setOffscreenPageLimit(mSelectedChannels.size()/5);
     }
 
     @Override
@@ -131,6 +130,21 @@ public class HomeMainFragment extends BaseFragment implements TabLayout.OnTabSel
 
     @Override
     public void onClick(View v) {
-        
+        int id = v.getId();
+        switch (id) {
+            case R.id.id_search_tv:
+                startActivity(SearchActivity.class);
+                break;
+            case R.id.id_add_channel_iv:
+                showSetupChannelDialog();
+                break;
+        }
+    }
+
+    private void showSetupChannelDialog() {
+        showToastShort("showSetupChannelDialog 即将开发");
+        if (mSetupChannelDialog == null)
+            mSetupChannelDialog = new SetupChannelDialog();
+        mSetupChannelDialog.showAtLocation(getRootView(), Gravity.BOTTOM, 0, 0);
     }
 }

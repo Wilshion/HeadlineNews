@@ -59,7 +59,7 @@
         <attr name="ws_cornor_bottom_right" format="dimension"/>
         <attr name="ws_cornor_bottom_left" format="dimension"/>
         <attr name="ws_cornors" format="dimension"/>
-        
+
         <attr name="ws_border_width" format="dimension"/>
         <attr name="ws_border_color" format="color"/>
 
@@ -108,6 +108,27 @@
             <enum name="real" value="0"/>
             <enum name="dotted" value="1"/>
         </attr>
+        <attr name="ws_line_dotted_size" format="dimension"/>
+        <attr name="ws_line_dotted_spacing" format="dimension"/>
+        <attr name="ws_line_tag" format="string"/>
     </declare-styleable>
-
+    <declare-styleable name="UIRecyclerView">
+        <attr name="ws_divider_width" format="dimension"/>
+        <attr name="ws_divider_color" format="color"/>
+        <attr name="ws_divider_bg" format="reference"/>
+        <attr name="ws_divider_margin_left" format="dimension"/>
+        <attr name="ws_divider_margin_right" format="dimension"/>
+        <attr name="ws_oritation">
+            <enum name="horizontal" value="0"/>
+            <enum name="vertical" value="1"/>
+        </attr>
+        <attr name="ws_layout_stagger" format="boolean"/>
+        <attr name="ws_num_colums" format="integer"/>
+    </declare-styleable>
+    
+    <declare-styleable name="MineFragmentCell">
+        <attr name="cell_title" format="string"/>
+        <attr name="cell_subtitle" format="string"/>
+        <attr name="cell_notification_num" format="integer"/>
+    </declare-styleable>
 </resources>

@@ -41,8 +41,8 @@ public class SplashActivity extends BaseMvpActivity<SplashPresenter> implements 
 
     @Override
     public void goToMainActivity() {
+        finish();   
         startActivity(MainActivity.class);
-        finish();
     }
 
     @Override
@@ -73,5 +73,11 @@ public class SplashActivity extends BaseMvpActivity<SplashPresenter> implements 
                 goToAdDetailActivity();
                 break;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        logE("onDestroy");
     }
 }

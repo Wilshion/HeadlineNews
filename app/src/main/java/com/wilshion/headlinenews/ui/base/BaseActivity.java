@@ -1,6 +1,7 @@
 package com.wilshion.headlinenews.ui.base;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
@@ -26,10 +27,16 @@ import me.yokeyword.fragmentation.SupportActivity;
  * [description : activity 基类 提供最基本的 log、toast,intent跳转 方法]
  * [version : 1.0]
  */
-public class BaseActivity extends SupportActivity implements ILogHelper, IToastHelper,IIntentHelper {
+public abstract class BaseActivity extends SupportActivity implements ILogHelper, IToastHelper, IIntentHelper {
     private ILogHelper mLogHelper;
     private IToastHelper mToastHelper;
     private IntentHelperImp mIntentHelper;
+
+    protected abstract void initViews();
+
+    protected abstract void initData(Intent preIntent);
+
+    protected abstract void requestData();
 
 // =============================================================================================
 //                                     生命周期
@@ -77,6 +84,7 @@ public class BaseActivity extends SupportActivity implements ILogHelper, IToastH
 
     /**
      * 子类 可重载此方法
+     *
      * @return
      */
     protected String getTAG() {
@@ -84,31 +92,30 @@ public class BaseActivity extends SupportActivity implements ILogHelper, IToastH
     }
 
 
-
-
     // =============================================================================================
 //                                     private 方法
 // =============================================================================================
-    private void releaseAll(){
+    private void releaseAll() {
         releaseLogHelper();
         releaseToastHelper();
         releaseIntentHelper();
     }
-    private void releaseLogHelper(){
+
+    private void releaseLogHelper() {
         if (mLogHelper != null)
             mLogHelper = null;
     }
 
-    private void releaseToastHelper(){
+    private void releaseToastHelper() {
         if (mToastHelper != null)
             mToastHelper = null;
     }
 
-    private void releaseIntentHelper(){
+    private void releaseIntentHelper() {
         if (mIntentHelper != null)
             mIntentHelper.release();
     }
-    
+
 
     // =============================================================================================
 //                                     IToast 实现方法
@@ -169,27 +176,27 @@ public class BaseActivity extends SupportActivity implements ILogHelper, IToastH
 
     @Override
     public void startActivity(Class<? extends BaseActivity> tartgetAc, int value) {
-        getIntentHelper().startActivity(tartgetAc,value);
+        getIntentHelper().startActivity(tartgetAc, value);
     }
 
     @Override
     public void startActivity(Class<? extends BaseActivity> tartgetAc, String value) {
-        getIntentHelper().startActivity(tartgetAc,value);
+        getIntentHelper().startActivity(tartgetAc, value);
     }
 
     @Override
     public void startActivity(Class<? extends BaseActivity> tartgetAc, List<CharSequence> value) {
-        getIntentHelper().startActivity(tartgetAc,value);
+        getIntentHelper().startActivity(tartgetAc, value);
     }
 
     @Override
     public void startActivity(Class<? extends BaseActivity> tartgetAc, Parcelable value) {
-        getIntentHelper().startActivity(tartgetAc,value);
+        getIntentHelper().startActivity(tartgetAc, value);
     }
 
     @Override
     public void startActivity(Class<? extends BaseActivity> tartgetAc, ArrayList<Parcelable> parcelableList) {
-        getIntentHelper().startActivity(tartgetAc,parcelableList);
+        getIntentHelper().startActivity(tartgetAc, parcelableList);
     }
 
 
@@ -259,5 +266,5 @@ public class BaseActivity extends SupportActivity implements ILogHelper, IToastH
         return false;
     }
 
-   
+
 }

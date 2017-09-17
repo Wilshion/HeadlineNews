@@ -107,5 +107,10 @@ public class UITipView extends AppCompatTextView {
         startAnimation(translateY);
     }
 
-   
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        mHandler.removeCallbacks(null);
+        mHandler = null;
+    }
 }

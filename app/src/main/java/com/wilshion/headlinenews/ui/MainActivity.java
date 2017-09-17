@@ -9,8 +9,8 @@ import com.wilshion.headlinenews.ui.fragment.HomeMainFragment;
 import com.wilshion.headlinenews.ui.fragment.MicroMainFragment;
 import com.wilshion.headlinenews.ui.fragment.MineMineFragment;
 import com.wilshion.headlinenews.ui.fragment.VideoMainFragment;
-import com.wilshion.headlinenews.view.UIBottomBar;
-import com.wilshion.headlinenews.view.UIBottomBarItem;
+import com.wilshion.headlinenews.view.tabbar.UIBottomBar;
+import com.wilshion.headlinenews.view.tabbar.UIBottomBarItem;
 
 import java.util.ArrayList;
 import java.util.List;

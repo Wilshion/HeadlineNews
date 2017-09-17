@@ -3,9 +3,29 @@
     <color name="colorPrimary">#D33D3C</color>
     <color name="colorPrimaryDark">#D33D3C</color>
     <color name="colorAccent">#D33D3C</color>
+
+    <color name="status_color_red">#D33D3C</color>
+    <color name="status_color_grey">#BDBDBD</color>
+    <color name="tab_bg">#F3F5F4</color>
+
+    <color name="tip_view_bg">#D5E8F6</color>
+    <color name="tip_view_text_color">#4592C6</color>
     
+    <color name="search_bg">#F4F4F4</color>
+    <color name="common_text_color">#ff222222</color>
     <!--home-->
     <color name="tab_selected_color">#fff85959</color>
+
+
+
+    <color name="line_body">#F4F5F6</color>
+    <color name="line_stoke">#F0F0F0</color>
+
+
+    <color name="detail_comment_name_color">#ff406599</color>
+    <color name="detail_comment_like_color">#ffcacaca</color>
+    <color name="detail_comment_content_color">#ff505050</color>
+    
 
     <color name="white">#FFFFFF</color>
     <!-- 白色 -->

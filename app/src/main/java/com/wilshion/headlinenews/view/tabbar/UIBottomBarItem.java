@@ -1,4 +1,4 @@
-package com.wilshion.headlinenews.view;
+package com.wilshion.headlinenews.view.tabbar;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.wilshion.headlinenews.R;
+import com.wilshion.headlinenews.view.UIBadgeView;
 import com.wilshion.utillib.util.EmptyUtils;
 import com.wilshion.utillib.util.ResouceUtil;
 

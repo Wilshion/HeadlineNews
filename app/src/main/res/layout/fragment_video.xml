@@ -5,6 +5,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
     <RelativeLayout
+        android:background="@color/status_color_grey"
         android:layout_width="match_parent"
         android:layout_height="60dp">
 

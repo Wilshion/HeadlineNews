@@ -9,7 +9,7 @@ import com.wilshion.utillib.util.LogUtils;
  * [version : 1.0]
  */
 public class LogHelperImp implements ILogHelper {
-    private String TAG = getClass().getSimpleName();
+    private String TAG = "Wilshion";
 
     public LogHelperImp(String TAG) {
         this.TAG = TAG;

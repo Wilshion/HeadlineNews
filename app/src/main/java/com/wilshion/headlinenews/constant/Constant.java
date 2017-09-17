@@ -7,4 +7,5 @@ package com.wilshion.headlinenews.constant;
  */
 public class Constant {
     public static final String CHANNEL_CODE = "channel_code";
+    public static final int COMMENT_PAGE_SIZE = 20;
 }

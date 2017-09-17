@@ -15,41 +15,41 @@
         android:layout_weight="1"/>
 
 
-    <com.wilshion.headlinenews.view.UIBottomBar
+    <com.wilshion.headlinenews.view.tabbar.UIBottomBar
         android:id="@+id/id_bottom_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/darkgray"
+        android:background="@color/tab_bg"
         android:orientation="horizontal">
 
-        <com.wilshion.headlinenews.view.UIBottomBarItem
+        <com.wilshion.headlinenews.view.tabbar.UIBottomBarItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:ws_item_icon="@drawable/selector_tab_home"
             app:ws_item_text="首页"
             app:ws_item_text_color="@color/color_tab_text"/>
 
-        <com.wilshion.headlinenews.view.UIBottomBarItem
+        <com.wilshion.headlinenews.view.tabbar.UIBottomBarItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:ws_item_icon="@drawable/selector_tab_video"
             app:ws_item_text="视频"
             app:ws_item_text_color="@color/color_tab_text"/>
 
-        <com.wilshion.headlinenews.view.UIBottomBarItem
+        <com.wilshion.headlinenews.view.tabbar.UIBottomBarItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:ws_item_icon="@drawable/selector_tab_micro"
             app:ws_item_text="微头条"
             app:ws_item_text_color="@color/color_tab_text"/>
 
-        <com.wilshion.headlinenews.view.UIBottomBarItem
+        <com.wilshion.headlinenews.view.tabbar.UIBottomBarItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:ws_item_icon="@drawable/selector_tab_mine"
             app:ws_item_text="我的"
             app:ws_item_text_color="@color/color_tab_text"/>
-    </com.wilshion.headlinenews.view.UIBottomBar>
+    </com.wilshion.headlinenews.view.tabbar.UIBottomBar>
 
 
 </LinearLayout>

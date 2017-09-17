@@ -45,15 +45,27 @@ public class HNHttpHelper {
 
     private HNHttpHelper() {
         initOkHttp();
-        mHomeApi = getApiService(HomeApi.BASE_SERVER_URL, HomeApi.class);
-        mVideoApi = getApiService(VideoApi.BASE_SERVER_URL,VideoApi.class);
     }
 
     public VideoApi getVideoApi() {
+        if (mVideoApi == null) {
+            synchronized (HNHttpHelper.class) {
+                if (mVideoApi == null) {
+                    mVideoApi = getApiService(VideoApi.BASE_SERVER_URL, VideoApi.class);
+                }
+            }
+        }
         return mVideoApi;
     }
 
     public HomeApi getHomeApi() {
+        if (mHomeApi == null) {
+            synchronized (HNHttpHelper.class) {
+                if (mHomeApi == null) {
+                    mHomeApi = getApiService(HomeApi.BASE_SERVER_URL, HomeApi.class);
+                }
+            }
+        }
         return mHomeApi;
     }
 

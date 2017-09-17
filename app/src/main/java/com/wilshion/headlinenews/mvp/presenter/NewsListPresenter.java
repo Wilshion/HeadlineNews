@@ -1,5 +1,7 @@
 package com.wilshion.headlinenews.mvp.presenter;
 
+import android.support.annotation.NonNull;
+
 import com.google.gson.Gson;
 import com.wilshion.headlinenews.model.bean.News;
 import com.wilshion.headlinenews.model.bean.NewsData;
@@ -18,7 +20,6 @@ import java.util.List;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
@@ -64,12 +65,22 @@ public class NewsListPresenter extends RxPresenter<NewsListContract.View>
                             }
                         }
                         TipBean tipBean = newsResponse.getTips();
-                        getView().showNewsList(newsList, page == 1 , tipBean.getDisplay_info());
+                        NewsListContract.View view = getView();
+                        if (view == null)
+                            LogUtils.e("无法获取到 NewsListContract.View");
+                        if (newsList == null)
+                            LogUtils.e("newsList == null");
+                        if (tipBean == null)
+                            LogUtils.e("tipBean == null");
+                        String tipInfo = "刷新成功";
+                        if (tipBean!=null)
+                            tipInfo = tipBean.getDisplay_info();
+                        getView().showNewsList(newsList, page == 1, tipInfo);
                     }
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-                        LogUtils.d(e);
+                        LogUtils.e(e);
                         getView().showError(e.getLocalizedMessage());
                     }
 
@@ -78,5 +89,6 @@ public class NewsListPresenter extends RxPresenter<NewsListContract.View>
                         LogUtils.d("onComplete");
                     }
                 });
+        addDisposable(mDisposable);
     }
 }

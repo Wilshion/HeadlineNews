@@ -1,12 +1,15 @@
 package com.wilshion.headlinenews.model.bean;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * @author ChayChan
  * @description: 用户实体类
  * @date 2017/7/9  10:43
  */
 
-public class UserEntity {
+public class UserEntity implements Parcelable{
     /**
      * verified_content :
      * avatar_url : http://p3.pstatp.com/thumb/216b000e0abb3ee9cb91
@@ -28,4 +31,49 @@ public class UserEntity {
     public String user_auth_info;
     public boolean user_verified;
     public String description;
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.verified_content);
+        dest.writeString(this.avatar_url);
+        dest.writeLong(this.user_id);
+        dest.writeString(this.name);
+        dest.writeInt(this.follower_count);
+        dest.writeByte(this.follow ? (byte) 1 : (byte) 0);
+        dest.writeString(this.user_auth_info);
+        dest.writeByte(this.user_verified ? (byte) 1 : (byte) 0);
+        dest.writeString(this.description);
+    }
+
+    public UserEntity() {
+    }
+
+    protected UserEntity(Parcel in) {
+        this.verified_content = in.readString();
+        this.avatar_url = in.readString();
+        this.user_id = in.readLong();
+        this.name = in.readString();
+        this.follower_count = in.readInt();
+        this.follow = in.readByte() != 0;
+        this.user_auth_info = in.readString();
+        this.user_verified = in.readByte() != 0;
+        this.description = in.readString();
+    }
+
+    public static final Creator<UserEntity> CREATOR = new Creator<UserEntity>() {
+        @Override
+        public UserEntity createFromParcel(Parcel source) {
+            return new UserEntity(source);
+        }
+
+        @Override
+        public UserEntity[] newArray(int size) {
+            return new UserEntity[size];
+        }
+    };
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -9,28 +10,36 @@
         android:id="@+id/id_tip_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/lightskyblue"
+        android:background="@color/tip_view_bg"
         android:paddingBottom="5dp"
         android:paddingTop="5dp"
-        android:textColor="@color/blue"/>
+        android:textColor="@color/tip_view_text_color"
+        android:textSize="14sp"
+        android:visibility="gone"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp">
 
         <com.scwang.smartrefresh.layout.SmartRefreshLayout
             android:id="@+id/id_refresh_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+
+            <!--
+             app:ws_divider_color="@color/gray"
+                app:ws_divider_margin_left="10dp"
+                app:ws_divider_margin_right="10dp"
+                app:ws_divider_width="1dp"
+            -->
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/id_recycler_view"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+               />
 
         </com.scwang.smartrefresh.layout.SmartRefreshLayout>
-
     </RelativeLayout>
-
-
 </LinearLayout>

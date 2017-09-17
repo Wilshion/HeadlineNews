@@ -51,7 +51,6 @@ public class UILoadingView extends FrameLayout {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        LogUtils.e("onFinishInflate");
         mLoadIv1 = (ImageView) findViewById(R.id.id_load1_iv);
         mLoadIv2 = (ImageView) findViewById(R.id.id_load2_iv);
         mLoadIv3 = (ImageView) findViewById(R.id.id_load3_iv);
@@ -73,7 +72,6 @@ public class UILoadingView extends FrameLayout {
 
 
     public void hide() {
-        LogUtils.e("hide");
         if (mAnimatorSet == null)
             return;
         if ((!mAnimatorSet.isRunning()) && (!mAnimatorSet.isStarted()))
@@ -97,14 +95,6 @@ public class UILoadingView extends FrameLayout {
             animator.setRepeatCount(-1);
             animator.setRepeatMode(ValueAnimator.REVERSE);
             animatorList.add(animator);
-
-
-//            ObjectAnimator loadAnimator = ObjectAnimator.ofFloat(imageViewList.get(i),
-//                    "alpha", new float[]{1.0F, 0.5F}).setDuration(500L);
-//            loadAnimator.setStartDelay(100 * i);
-//            loadAnimator.setRepeatMode(ObjectAnimator.REVERSE);
-//            loadAnimator.setRepeatCount(-1);
-//            animatorList.add(loadAnimator);
         }
 
         mAnimatorSet.playTogether(animatorList);

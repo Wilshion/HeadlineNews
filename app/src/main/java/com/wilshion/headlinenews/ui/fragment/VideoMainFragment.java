@@ -75,6 +75,7 @@ public class VideoMainFragment extends BaseFragment implements TabLayout.OnTabSe
             NewsListFragment newsFragment = new NewsListFragment();
             Bundle bundle = new Bundle();
             bundle.putString(Constant.CHANNEL_CODE, channel.channelCode);
+            bundle.putBoolean(NewsListFragment.INTENT_PARAM_VIDEO, true);//是否是视频列表页面,]true
             newsFragment.setArguments(bundle);
             mChannelFragments.add(newsFragment);//添加到集合中
         }

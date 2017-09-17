@@ -731,6 +731,9 @@ public final class TimeUtils {
     public static String getFriendlyTimeSpanByNow(final long millis) {
         long now = System.currentTimeMillis();
         long span = now - millis;
+        long sec = span / 1000;
+        long min = sec / 60;
+        long hour = min / 60;
         if (span < 0)
             return String.format("%tc", millis);// U can read http://www.apihome.cn/api/java/Formatter.html to understand it.
         if (span < 1000) {
@@ -749,6 +752,46 @@ public final class TimeUtils {
         } else {
             return String.format("%tF", millis);
         }
+    }
+
+    /**
+     * 转换为 xx:xx 格式
+     *
+     * @param time
+     * @return
+     */
+    public static String secToTime(int time) {
+        String timeStr = null;
+        int hour = 0;
+        int minute = 0;
+        int second = 0;
+        if (time <= 0)
+            return "00:00";
+        else {
+            minute = time / 60;
+            if (minute < 60) {
+                second = time % 60;
+                timeStr = unitFormat(minute) + ":" + unitFormat(second);
+            } else {
+                hour = minute / 60;
+                if (hour > 99)
+                    return "99:59:59";
+                minute = minute % 60;
+                second = time - hour * 3600 - minute * 60;
+                timeStr = unitFormat(hour) + ":" + unitFormat(minute) + ":"
+                        + unitFormat(second);
+            }
+        }
+        return timeStr;
+    }
+
+    public static String unitFormat(int i) {
+        String retStr = null;
+        if (i >= 0 && i < 10)
+            retStr = "0" + Integer.toString(i);
+        else
+            retStr = "" + i;
+        return retStr;
     }
 
     private static long getWeeOfToday() {

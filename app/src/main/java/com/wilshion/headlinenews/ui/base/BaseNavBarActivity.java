@@ -1,5 +1,6 @@
 package com.wilshion.headlinenews.ui.base;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -28,7 +29,19 @@ public abstract class BaseNavBarActivity extends BaseActivity
         setContentView(R.layout.activity_base_nav_bar);
         initNavigationBar();
         initContentLayoutView();
+        initViews();
+    }
+    
+    
 
+    @Override
+    protected void initData(Intent preIntent) {
+        
+    }
+
+    @Override
+    protected void requestData() {
+        
     }
 
     private void initNavigationBar() {
@@ -81,6 +94,21 @@ public abstract class BaseNavBarActivity extends BaseActivity
 
     protected final View getContentView() {
         return mContentView;
+    }
+
+    @Override
+    public void onNavigationBarLeftClicked() {
+        finish();
+    }
+
+    @Override
+    public void onNavigationBarTitleClicked() {
+
+    }
+
+    @Override
+    public void onNavigationBarRightClicked() {
+
     }
 
 

@@ -18,6 +18,7 @@ public class RxPresenter<T extends BaseContract.View> implements BaseContract.Pr
         if (mCompositeDisposable != null && !mCompositeDisposable.isDisposed())
             mCompositeDisposable.dispose();
     }
+    
 
     protected void addDisposable(Disposable disposable) {
         if (mCompositeDisposable == null)
@@ -31,11 +32,13 @@ public class RxPresenter<T extends BaseContract.View> implements BaseContract.Pr
 
     @Override
     public void attachView(T view) {
+//        LogUtils.e("attachView   " + view.toString());
         mView = view;
     }
 
     @Override
     public void detachView() {
+//        LogUtils.e("detachView " + mView.toString());
         mView = null;
         unDisposable();
     }

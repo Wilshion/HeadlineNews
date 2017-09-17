@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center_vertical"
+              android:orientation="horizontal"
+              android:paddingBottom="10dp"
+              android:paddingLeft="15dp"
+              android:paddingRight="15dp"
+              android:paddingTop="10dp">
+
+    <TextView
+        android:id="@+id/id_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="哈哈哈啊"/>
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/id_notification_tv"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginLeft="5dp"
+        android:gravity="center"
+        android:text="1"
+        app:rv_backgroundColor="@color/red"
+        app:rv_isRadiusHalfHeight="true"/>
+
+    <android.support.v4.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:id="@+id/id_subtitle_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/id_right_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:src="@drawable/ic_right_arrow_gray"/>
+</LinearLayout>

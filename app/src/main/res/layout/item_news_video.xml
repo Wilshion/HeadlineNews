@@ -1,41 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:background="@color/white"
               android:orientation="vertical">
 
-    <RelativeLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="180dp">
-
-        <VideoView
+        android:layout_height="200dp">
+        
+        <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
             android:id="@+id/id_video_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
         <LinearLayout
-            style="@style/NewsListItemLinearLayout"
+            android:background="@drawable/jc_title_bg"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <TextView
-                style="@style/NewsListItemTitle"
+                android:id="@+id/id_title_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="哈哈哈哈"/>
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:text="哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈"
+                android:textColor="@color/white"
+                android:textSize="16sp"/>
 
             <TextView
-                android:id="@+id/id_play_cout_tv"
+                android:id="@+id/id_play_count_tv"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_below="@id/id_title_tv"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:text="43万次播放"
+                android:textColor="@color/white"
+                android:textSize="12sp"/>
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/id_play_iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </RelativeLayout>
+
+        <com.flyco.roundview.RoundFrameLayout
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:layout_gravity="right|bottom"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"
+            app:rv_cornerRadius="15dp">
+
+            <com.flyco.roundview.RoundTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.3"
+                app:rv_backgroundColor="@color/black"
+                app:rv_cornerRadius="15dp"/>
+
+            <TextView
+                android:id="@+id/id_duration_tv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="06:18"
+                android:textColor="@color/white"
+                android:textSize="10sp"/>
+        </com.flyco.roundview.RoundFrameLayout>
+    </FrameLayout>
 
     <include layout="@layout/item_part_news_list_video_user"/>
 </LinearLayout>

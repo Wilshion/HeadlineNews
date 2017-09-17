@@ -18,7 +18,7 @@ public class News {
     public String abstractX;
     public int article_type;
     public String tag;
-    public boolean has_m3u8_video;
+    public int has_m3u8_video;
     public String keywords;
     public String rid;
     public boolean show_portrait_article;
